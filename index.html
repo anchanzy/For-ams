@@ -15,7 +15,7 @@ body {
   position: relative;
 }
 
-/* 🌸 Falling petals (behind content) */
+/* 🌸 Falling petals (BEHIND content) */
 .petal-fall {
   position: fixed;
   top: -50px;
@@ -35,6 +35,12 @@ body {
   }
 }
 
+/* 🔒 Content wrapper (IMPORTANT for GitHub Pages) */
+.content {
+  position: relative;
+  z-index: 2;
+}
+
 /* 💌 Card */
 .card {
   background: rgba(255,255,255,0.97);
@@ -45,8 +51,6 @@ body {
   border-radius: 28px;
   box-shadow: 0 25px 60px rgba(0,0,0,0.18);
   text-align: center;
-  position: relative;
-  z-index: 2;
 }
 
 /* 🌸 Flower */
@@ -105,9 +109,9 @@ body {
 
 /* 💖 Text */
 h1 { color:#d63384; }
-.type { min-height:100px; color:#555; }
+.type { min-height:100px; color:#555; white-space: pre-line; }
 
-/* 🎵 Spotify – mobile safe */
+/* 🎵 Spotify */
 .spotify {
   margin-top: 25px;
 }
@@ -120,8 +124,6 @@ h1 { color:#d63384; }
 /* 📱 QR */
 .qr {
   margin-top: 25px;
-  position: relative;
-  z-index: 3;
 }
 .qr img {
   width: 160px;
@@ -143,41 +145,43 @@ for(let i=0;i<20;i++){
 }
 </script>
 
-<div class="card">
+<div class="content">
+  <div class="card">
 
-<h1>For You, My Baby 💕</h1>
+    <h1>For You, My Baby 💕</h1>
 
-<div class="flower-wrap">
-  <div class="flower">
-    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
-    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
-    <div class="center"></div>
+    <div class="flower-wrap">
+      <div class="flower">
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="center"></div>
+      </div>
+    </div>
+
+    <div class="stem"></div>
+
+    <div class="type" id="typeText"></div>
+
+    <!-- 🎵 Spotify -->
+    <div class="spotify">
+      <iframe src="https://open.spotify.com/embed/playlist/459euFZQN6WxVDGvxO1aIp"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"></iframe>
+      <p style="font-size:13px">
+        If music doesn’t play, tap
+        <a href="https://open.spotify.com/playlist/459euFZQN6WxVDGvxO1aIp" target="_blank">
+          open in Spotify 💚
+        </a>
+      </p>
+    </div>
+
+    <!-- 📱 QR -->
+    <div class="qr">
+      <p>Scan to watch our memories 💖</p>
+      <img src="qr-code.jpeg" alt="QR Code">
+    </div>
+
   </div>
-</div>
-
-<div class="stem"></div>
-
-<div class="type" id="typeText"></div>
-
-<!-- 🎵 Spotify (MOBILE SAFE) -->
-<div class="spotify">
-  <iframe src="https://open.spotify.com/embed/playlist/459euFZQN6WxVDGvxO1aIp"
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-    loading="lazy"></iframe>
-  <p style="font-size:13px">
-    If music doesn’t play, tap
-    <a href="https://open.spotify.com/playlist/459euFZQN6WxVDGvxO1aIp" target="_blank">
-      open in Spotify 💚
-    </a>
-  </p>
-</div>
-
-<!-- 📱 QR (GUARANTEED SCANNABLE) -->
-<div class="qr">
-  <p>Scan to watch our memories 💖</p>
-  <img src="qr-code.jpeg">
-</div>
-
 </div>
 
 <script>
@@ -192,7 +196,7 @@ I love you endlessly 🤍`;
 let i=0;
 (function type(){
   if(i<msg.length){
-    document.getElementById("typeText").innerHTML+=msg[i++];
+    document.getElementById("typeText").innerHTML += msg[i++];
     setTimeout(type,40);
   }
 })();
