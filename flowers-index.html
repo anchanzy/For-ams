@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Baby 🌸</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #ffd6e8, #fff);
+  font-family: 'Segoe UI', sans-serif;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* 🌸 Falling petals (behind content) */
+.petal-fall {
+  position: fixed;
+  top: -50px;
+  width: 18px;
+  height: 18px;
+  background: pink;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: fall linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(120vh) rotate(360deg);
+  }
+}
+
+/* 💌 Card */
+.card {
+  background: rgba(255,255,255,0.97);
+  width: 92%;
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 30px 20px;
+  border-radius: 28px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* 🌸 Flower */
+.flower-wrap { height: 260px; }
+.flower {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+.petal {
+  position: absolute;
+  width: 80px;
+  height: 130px;
+  left: 60px;
+  top: 20px;
+  background: radial-gradient(circle at top, #ffd1e8, #ff7eb9);
+  border-radius: 50%;
+  transform-origin: bottom center;
+}
+
+.petal:nth-child(1){transform:rotate(0deg)}
+.petal:nth-child(2){transform:rotate(45deg)}
+.petal:nth-child(3){transform:rotate(90deg)}
+.petal:nth-child(4){transform:rotate(135deg)}
+.petal:nth-child(5){transform:rotate(180deg)}
+.petal:nth-child(6){transform:rotate(225deg)}
+.petal:nth-child(7){transform:rotate(270deg)}
+.petal:nth-child(8){transform:rotate(315deg)}
+
+.center {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, #fff6a9, #ffcc00);
+  border-radius: 50%;
+  top: 115px;
+  left: 70px;
+  box-shadow: 0 0 20px rgba(255,204,0,0.8);
+}
+
+.stem {
+  width: 8px;
+  height: 120px;
+  background: linear-gradient(to bottom, #6bd36b, #2e8b57);
+  margin: 0 auto 10px;
+  border-radius: 6px;
+}
+
+/* 💖 Text */
+h1 { color:#d63384; }
+.type { min-height:100px; color:#555; }
+
+/* 🎵 Spotify – mobile safe */
+.spotify {
+  margin-top: 25px;
+}
+.spotify iframe {
+  width: 100%;
+  height: 352px;
+  border-radius: 12px;
+}
+
+/* 📱 QR */
+.qr {
+  margin-top: 25px;
+  position: relative;
+  z-index: 3;
+}
+.qr img {
+  width: 160px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🌸 Falling petals -->
+<script>
+for(let i=0;i<20;i++){
+  const p = document.createElement("div");
+  p.className = "petal-fall";
+  p.style.left = Math.random()*100+"vw";
+  p.style.animationDuration = 6 + Math.random()*6 + "s";
+  p.style.animationDelay = Math.random()*5 + "s";
+  document.body.appendChild(p);
+}
+</script>
+
+<div class="card">
+
+<h1>For You, My Baby 💕</h1>
+
+<div class="flower-wrap">
+  <div class="flower">
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="center"></div>
+  </div>
+</div>
+
+<div class="stem"></div>
+
+<div class="type" id="typeText"></div>
+
+<!-- 🎵 Spotify (MOBILE SAFE) -->
+<div class="spotify">
+  <iframe src="https://open.spotify.com/embed/playlist/459euFZQN6WxVDGvxO1aIp"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy"></iframe>
+  <p style="font-size:13px">
+    If music doesn’t play, tap
+    <a href="https://open.spotify.com/playlist/459euFZQN6WxVDGvxO1aIp" target="_blank">
+      open in Spotify 💚
+    </a>
+  </p>
+</div>
+
+<!-- 📱 QR (GUARANTEED SCANNABLE) -->
+<div class="qr">
+  <p>Scan to watch our memories 💖</p>
+  <img src="c:\Users\amroa\Downloads\My_QR_Code_1-1024.jpeg">
+</div>
+
+</div>
+
+<script>
+/* ⌨️ Typing */
+const msg = `Hi Baby Amro
+Every petal falling reminds me of us 🌸
+Every song carries my heart to you.
+No matter where we are,
+I’ll always choose you.
+I love you endlessly 🤍`;
+
+let i=0;
+(function type(){
+  if(i<msg.length){
+    document.getElementById("typeText").innerHTML+=msg[i++];
+    setTimeout(type,40);
+  }
+})();
+</script>
+
+</body>
+</html>
